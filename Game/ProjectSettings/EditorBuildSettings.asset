@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/1_DanceHall.unity
-  - enabled: 1
     path: Assets/Scenes/1.3_MusicRoomCorridor Copy.unity
+  - enabled: 1
+    path: Assets/Scenes/1_DanceHall.unity
   - enabled: 1
     path: Assets/Scenes/3_MusicRoom_Purple.unity
   - enabled: 1

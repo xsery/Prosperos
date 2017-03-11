@@ -17,10 +17,13 @@ public class DoorBehaviour : MonoBehaviour {
 	public bool needKey;
 	public Object toRoom;
 
+	private TextBox textShow;
+
 	void Start(){
 		if (isStair) {
 			GetComponent<BoxCollider2D> ().isTrigger = true;
 		}
+		textShow = GameObject.Find ("TextBoxManager").GetComponent<TextBox> ();
 	}
 
 	void Update(){
@@ -60,9 +63,13 @@ public class DoorBehaviour : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col){
 		if (isLocked) {
+			textShow.ShowText ();
+			textShow.ChangeText (1);
 			if ((col.gameObject.tag == "Player") && (col.gameObject.GetComponent<PlayerMovement>().keys.Count != 0)) {
 				for (int i = 0; i < col.gameObject.GetComponent<PlayerMovement> ().keys.Count; i++) {
 					if (col.gameObject.GetComponent<PlayerMovement> ().keys[i] == doorId) {
+						textShow.ShowText ();
+						textShow.ChangeText (2);
 						isLocked = false;
 					}
 				}
