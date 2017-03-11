@@ -10,8 +10,9 @@ public class PlayerMovement : MonoBehaviour {
 	Rigidbody2D rigid;
 	float dir;
 	public float speed;
+	public bool canMove = true;
 
-	Animator anim;
+	public Animator anim;
 
 	bool isFlip = false;
 
@@ -42,7 +43,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		dir = Input.GetAxis ("Horizontal");
-		if (dir != 0) {
+		if ((dir != 0) && (canMove)) {
 			Walk (dir);
 			anim.SetBool ("walking", true);
 		} else {
